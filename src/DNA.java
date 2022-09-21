@@ -1,5 +1,8 @@
 package src;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class DNA {
     String NucleotideSeq = new String();
 
@@ -34,24 +37,11 @@ public class DNA {
 
         return mass;
     }
+    //fix mutate codon
+    String mutateCodon(String NucleotideSeq, String originalCodon, String newCodon){
+        NucleotideSeq.replace(originalCodon, newCodon);
 
-    String mutateCodon(String NucleotideSeq, char codonNew){
-
-        String NucleotideSeq2 = "";
-
-        for(int i=0; i<NucleotideSeq.length(); i++){
-            if(NucleotideSeq.charAt(i) == codonNew){
-
-                NucleotideSeq2 += codonNew;
-
-            }
-            else{
-                NucleotideSeq2 += NucleotideSeq.charAt(i);
-            }
-        }
-
-
-        return NucleotideSeq2;
+        return NucleotideSeq; //change this
     }
 
     int nucleotideCount(String NucleotideSeq, char c){
@@ -130,6 +120,27 @@ public class DNA {
         return valid;
     }
 
+    String sequence(String NucleotideSeq) {
+        String NucleotideSeq2 = "";
+        for (int i=0; i<NucleotideSeq.length(); i++) {
+
+            if(NucleotideSeq.charAt(i) == 'A'){
+                NucleotideSeq2+='A';
+            }
+            else if (NucleotideSeq.charAt(i) == 'T') {
+                NucleotideSeq2+='T';
+            }
+            else if (NucleotideSeq.charAt(i) == 'G') {
+                NucleotideSeq2+='G';
+            }
+            else if (NucleotideSeq.charAt(i) == 'C') {
+                NucleotideSeq2+='C';
+            }
+            else{
+            }
+        }
+        return NucleotideSeq2;
+    }
 
 
 }
